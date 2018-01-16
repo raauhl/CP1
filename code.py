@@ -8,27 +8,41 @@ black = (0,0,0)
 red = (255,0,0)
 white = (255,255,255)
 green = (0,255,0)
+Height = 512
+Width = 1024
+points = []
+
 
 n = input("Enter Number of points:")
-X = random.sample(range(1, 500), n)
-Y = random.sample(range(1, 700), n)
-points = []
+X = random.sample(range(1, Width-1), n)
+Y = random.sample(range(1, Height-1), n)
+
 i=0
 while i<n:
-	points.append([Y[i],X[i]])
+	points.append([X[i],Y[i]])
 	i = i + 1
 print points
+
+leftMost = []
+rightMost = []
+
+min = -1
+max
+for x in points:
+	print x[1]
+    
+
+
 
 #algortihm
 #create a  list newPolygon with points in proper order
 
-"""
-points.append([50,40])
-points.append([100,150])
-points.append([60,200])
-"""
 
-size = [1000,500]
+points.append([0,0])
+points.append([100,0])
+points.append([50,200])
+
+size = [Width,Height]
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("CODING PROJECT")
 
