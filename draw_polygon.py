@@ -11,12 +11,10 @@ import sys
 
 pygame.init()
 
-black = (0,0,0)
 red = (255,0,0)
 white = (255,255,255)
 Height = 512
 Width = 1024
-points = []
 
 #takes three points L,R,P i.e leftmost , rightmost and some point 'P' and tells whether point 'P' lies upper or lower to the line segment 'LR' using slope formula
 def isUpper(L,R,P):
@@ -28,6 +26,7 @@ def isUpper(L,R,P):
 n = input("Enter Number of points : ")
 count = 0;                                  #counts unique point generated
 map = set()                                 #checks whether the co-ordinate is generated already
+points = []                                 #list of unique co-ordinates generated
 while count < n:
 	x = randint(0, Width-1)
 	y = randint(0, Height-1)
@@ -57,12 +56,6 @@ for ptr in points:
 			upper.append(ptr)
 		else:
 			lower.append(ptr)
-"""
-print ("upper")
-print upper
-print ("lower")
-print lower
-"""
 
 upper.sort(key = lambda x : x[0])
 upper.reverse()
@@ -85,7 +78,5 @@ while done == False:
 
     screen.fill(white)
     pygame.draw.polygon(screen, red, points, 1)
-    #for i in range(15):
-    #    pygame.draw.line(screen, green, [i*10,100], [40,490],2)
     pygame.display.flip()
     clock.tick(20)

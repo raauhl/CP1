@@ -1,6 +1,6 @@
 import pygame
 import random
-import matplotlib.pyplot as plt
+import sys
 
 pygame.init()
 
@@ -23,24 +23,60 @@ while i<n:
 	i = i + 1
 print points
 
-leftMost = []
-rightMost = []
 
-min = -1
-max
-for x in points:
-	print x[1]
+max = sys.maxint
+min = -sys.maxint-1 
+leftMost = [max,max]
+rightMost = [min,min]
+
+
+for ptr in points:
+
+	if ptr[0] < leftMost[0]:
+		leftMost = ptr
+	if ptr[0] > rightMost[0]:
+		rightMost = ptr
+"""
+print leftMost
+print rightMost
+"""
+
+def isUpper(L,R,P):
+	if ((P[1]-L[1])*(R[0]-L[0]) - (P[0]-L[0])*(R[1]-L[1])) > 0:
+		return 1
+        else:
+		return 0
+
+upper = []
+lower = []
+for ptr in points:
+	if ptr != leftMost and ptr != rightMost:s
+		if isUpper(ptr,leftMost,rightMost):
+			upper.append(ptr)
+		else:
+			lower.append(ptr)
+
+print ("upper")
+print upper
+
+print ("lower")
+print lower
+
+		
+
+
+
     
-
-
 
 #algortihm
 #create a  list newPolygon with points in proper order
 
-
+"""
 points.append([0,0])
 points.append([100,0])
 points.append([50,200])
+"""
+
 
 size = [Width,Height]
 screen = pygame.display.set_mode(size)
